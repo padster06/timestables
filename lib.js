@@ -11,6 +11,7 @@ var x1 = '?';
 var x2 = '?';
 var but;
 var reveal;
+var points = 0;
 
 var ans = '?';
 
