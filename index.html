@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>Boilerplate - Canvas</title>
+		<style>
+		*{
+			padding:0;
+			margin:0;
+			touch-action: manipulation;
+		}
+		body{
+			text-align:center;
+			background-color:#eeeeee;
+			overflow:hidden;
+		}
+		#myCanvas{
+			border:solid 1px #555;
+		}
+		#new{
+			position:fixed;
+			left:400px;
+			bottom:100px;
+			opacity:1;
+			padding:15px;
+			font-size: 50px;
+			color: white;
+
+		}
+		#reveal{
+			position:fixed;
+			left:600px;
+			bottom:100px;
+			opacity:1;
+			padding:15px;
+			font-size: 40px;
+			color: white;
+
+		}
+		#title{
+			display: flex;
+			position: fixed;
+			color: white;
+			font-size: 15vh;
+			font-family: Arial, Helvetica, sans-serif;
+			height: 30px;
+
+
+
+			left: 3vw;
+			top: 1vh;
+		}
+		button{
+			width:180px;
+			height:90px;
+			border-radius:20px;
+			background: none;
+			border: 3px solid white;
+		}
+		</style>
+	</head>
+	<script src="lib.js"></script>
+	<body>
+		<h1 id="title">{}</h1>
+		<button id="new">go</button>
+		<button id="reveal">reveal</button>
+		<canvas id='myCanvas' width=800 height=600></canvas>
+
+	</body>
+	<script type='text/javascript'>
+		init();
+		document.getElementById('myCanvas').width=window.innerWidth;
+		document.getElementById('myCanvas').height=window.innerHeight;
+	</script>
+</html>
