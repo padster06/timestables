@@ -21,6 +21,8 @@ var pointEel;
 
 function init(){
 	//Setup require objects
+	wrong = new Audio('audio/wrong.mp3');
+
 
 	begin();
 	but=document.getElementById('new');
@@ -47,8 +49,10 @@ function makeX() {
 
 	if (ans == (x1*x2)) {
 		points++;
+		correct.play();
 	}else {
 		points--;
+		wrong.play();
 	}
 	x1 = Math.floor(Math.random()*12)+1;
 	x2 = Math.floor(Math.random()*12)+1;
