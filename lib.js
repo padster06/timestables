@@ -22,14 +22,13 @@ var pointEel;
 function init(){
 	//Setup require objects
 	wrong = new Audio('audio/wrong.mp3');
-
-
+	correct = new Audio('audio/correct.mp3');
 	begin();
 	but=document.getElementById('new');
 	but.addEventListener('click', function(){makeX();})
 	q = document.getElementById('q');
 	ansinput = document.getElementById('answer');
-	correct = new Audio('correct.mp3');
+
 	x1 = Math.floor(Math.random()*12)+1;
 	x2 = Math.floor(Math.random()*12)+1;
 	q.textContent='what is '+x1+'x'+x2;
@@ -54,10 +53,13 @@ function makeX() {
 		points--;
 		wrong.play();
 	}
+	ansinput.value = x1*x2;
+	setTimeout(function () {
 	x1 = Math.floor(Math.random()*12)+1;
 	x2 = Math.floor(Math.random()*12)+1;
 	q.textContent='what is '+x1+'x'+x2;
 	ansinput.value = '';
+}, 1500);
 }
 
 function revealFun() {
