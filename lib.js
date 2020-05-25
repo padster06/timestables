@@ -12,19 +12,26 @@ var x2 = '?';
 var but;
 var reveal;
 var points = 0;
-
+var correct;
+var wrong;
 var ans = '?';
+var q;
+var ansinput;
+var pointEel;
 
 function init(){
 	//Setup require objects
-	canvas=document.getElementById('myCanvas');
-	display=canvas.getContext('2d');
+
 	begin();
 	but=document.getElementById('new');
 	but.addEventListener('click', function(){makeX();})
-	reveal=document.getElementById('reveal');
-	reveal.addEventListener('click', function(){ revealFun();});
-
+	q = document.getElementById('q');
+	ansinput = document.getElementById('answer');
+	correct = new Audio('correct.mp3');
+	x1 = Math.floor(Math.random()*12)+1;
+	x2 = Math.floor(Math.random()*12)+1;
+	q.textContent='what is '+x1+'x'+x2;
+	pointEel = document.getElementById('points');
 }
 
 function begin(){
@@ -36,9 +43,17 @@ function begin(){
 }
 
 function makeX() {
+	ans = ansinput.value;
+
+	if (ans == (x1*x2)) {
+		points++;
+	}else {
+		points--;
+	}
 	x1 = Math.floor(Math.random()*12)+1;
 	x2 = Math.floor(Math.random()*12)+1;
-	ans = '?';
+	q.textContent='what is '+x1+'x'+x2;
+	ansinput.value = '';
 }
 
 function revealFun() {
@@ -48,24 +63,9 @@ function revealFun() {
 function mainLoop(){
 	//Get time since last refresh
 	var tick=Date.now()-lastUpdate;
-	display.beginPath();
-
-	//Clear the display
-	display.fillStyle = 'rgb(0,0,80)';
-	display.fillRect(0, 0, canvas.width, canvas.height);
-	display.fillStyle = '#fff';
-	display.font="60px arial";
-	console.log('hello');
-	//Add items that you want to draw here
-	if (x1 != '?' && x2 != '?' ) {
-		display.fillText('what is ' + x1 + ' X ' + x2 + ' = ' + ans, 300, (canvas.height/2));
-	} else {
-		display.fillText('click \'go\' to generate a random', 100, (canvas.height/2-120));
-		display.fillText('sum and then press \'reveal\' to', 100, (canvas.height/2-60));
-		display.fillText('show the answer.', 100, (canvas.height/2));
-	}
+	pointEel.textContent = points;
 
 
 	//Draw to the display
-	display.stroke();
+
 }

@@ -9,7 +9,7 @@
 		}
 		body{
 			text-align:center;
-			background-color:#eeeeee;
+			background-color:rgba(0,0,80,1);
 			overflow:hidden;
 		}
 		#myCanvas{
@@ -37,7 +37,7 @@
 		}
 		#title{
 			display: flex;
-			position: fixed;
+			position: absolute;
 			color: white;
 			font-size: 15vh;
 			font-family: Arial, Helvetica, sans-serif;
@@ -47,6 +47,48 @@
 
 			left: 3vw;
 			top: 1vh;
+		}
+		#pointsTitle{
+			margin-right: auto;
+			position: relative;
+			color: white;
+			font-size: 15vh;
+			font-family: Arial, Helvetica, sans-serif;
+			height: 30px;
+		}
+		#points{
+			margin-right: auto;
+			margin-top: 10vh;
+			position: relative;
+			color: white;
+			font-size: 15vh;
+			font-family: Arial, Helvetica, sans-serif;
+			height: 30px;
+		}
+		.input{
+			font-family: Arial, Helvetica, sans-serif;
+			position: fixed;
+			color: white;
+			width: 50%;
+			margin-left: 50%;
+			top: 50%;
+			border-radius: 5px;
+			border: 2px solid white;
+			transform: translate(-50%);
+		}
+		.input input{
+			border: 2px solid white;
+			border-radius: 5px;
+			background: none;
+			color: white;
+			font-size: 45px;
+			width: 75%;
+			height: 50px;
+		}
+		.input input:focus{
+			border: 2px solid white;
+			width: 75%;
+			height: 50px;
 		}
 		button{
 			width:180px;
@@ -60,16 +102,20 @@
 	<script src="lib.js"></script>
 	<body>
 		<h1 id="title">{}</h1>
-		<h1></h1>
-		<input type="text" name="answer" placeholder="answer">
+		<h1 id="pointsTitle">points =</h1>
+		<h1 id="points">0</h1>
+		<div class="input">
+			<h1 id="q">hello</h1>
+			<input type="number" id="answer" placeholder="answer">
+		</div>
+
 		<button id="new">go</button>
-		<button id="reveal">reveal</button>
-		<canvas id='myCanvas' width=800 height=600></canvas>
+
+
 
 	</body>
 	<script type='text/javascript'>
 		init();
-		document.getElementById('myCanvas').width=window.innerWidth;
-		document.getElementById('myCanvas').height=window.innerHeight;
+
 	</script>
 </html>
